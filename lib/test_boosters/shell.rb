@@ -25,11 +25,11 @@ module TestBoosters
     end
 
     def evaluate(command)
-      with_clean_env { `#{command}` }
+      with_original_env { `#{command}` }
     end
 
-    def with_clean_env
-      defined?(Bundler) ? Bundler.with_clean_env { yield } : yield
+    def with_original_env
+      defined?(Bundler) ? Bundler.with_original_env { yield } : yield
     end
 
     def display_title(title)
