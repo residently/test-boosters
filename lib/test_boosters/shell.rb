@@ -8,7 +8,7 @@ module TestBoosters
 
       puts command unless options[:silent] == true
 
-      with_clean_env do
+      with_original_env do
         system(command)
       end
 
